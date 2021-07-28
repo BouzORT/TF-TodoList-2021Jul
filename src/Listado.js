@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
-const Listado = ({ carrito }) => {
+const Listado = ({ tareas, agregarTarea, borrarTarea }) => {
   const [textoTarea, setTextoTarea] = useState('');
 
   const btnClick = () => {
-    alert(`Agregaste la tarea: ${textoTarea}`);
+    if (textoTarea !== '') {
+      agregarTarea(textoTarea);
+      setTextoTarea('');
+    }
   };
 
   const handleTextoTarea = ({ target: { value } }) => {
@@ -15,8 +18,10 @@ const Listado = ({ carrito }) => {
     <>
       <h2>Carrito de Compras:</h2>
       <ul>
-        {carrito.map((item, index) => (
-          <li key={index}>{item}</li>
+        {tareas.map((item, index) => (
+          <li key={index}>
+            {item} <input type="button" value="Borrar" onClick={() => borrarTarea(item)} />
+          </li>
         ))}
       </ul>
       <input type="text" value={textoTarea} onChange={handleTextoTarea} />
