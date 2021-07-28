@@ -12,7 +12,7 @@ const App = () => {
       <header className="App-header">
         <Titulo nombre={nombre} apellido={apellido} />
       </header>
-      <div>
+      <div className="App-content">
         <Listado carrito={carrito} />
       </div>
     </div>

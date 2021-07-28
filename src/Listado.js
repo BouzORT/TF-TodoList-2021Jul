@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
 const Listado = ({ carrito }) => {
-  const { textoTarea, setTextoTarea } = useState('textoooooo');
+  const [textoTarea, setTextoTarea] = useState('');
 
   const btnClick = () => {
-    alert('Click!');
+    alert(`Agregaste la tarea: ${textoTarea}`);
+  };
+
+  const handleTextoTarea = ({ target: { value } }) => {
+    setTextoTarea(value);
   };
 
   return (
@@ -15,7 +19,7 @@ const Listado = ({ carrito }) => {
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <input type="text" value={textoTarea} />
+      <input type="text" value={textoTarea} onChange={handleTextoTarea} />
       <input type="button" value="Agregar" onClick={btnClick} />
     </>
   );
