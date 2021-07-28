@@ -18,7 +18,7 @@ const App = () => {
   };
 
   const borrarTarea = tarea => {
-    console.log(`Tarea: ${tarea}`);
+    setTareas(tareas.filter(elem => elem !== tarea));
   };
 
   return (
