@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Titulo from './components/Titulo';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
+import PageNotFound from './components/PageNotFound';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Switch>
           <Route path="/" component={Inicio} exact />
           <Route path="/login" component={Login} exact />
+          <Route component={PageNotFound} />
         </Switch>
       </div>
     </div>
