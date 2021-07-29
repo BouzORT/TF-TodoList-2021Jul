@@ -1,19 +1,21 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Titulo from './components/Titulo';
 import Inicio from './components/Inicio';
+import Login from './components/Login';
 import './App.css';
 
 const App = () => {
-  const nombre = 'Rigoberta';
-  const apellido = 'Menchú';
-
   return (
     <div className="App">
       <header className="App-header">
-        <Titulo nombre={nombre} apellido={apellido} />
+        <Titulo />
       </header>
       <div className="App-content">
-        <Inicio />
+        <Switch>
+          <Route path="/" component={Inicio} exact />
+          <Route path="/login" component={Login} exact />
+        </Switch>
       </div>
     </div>
   );
